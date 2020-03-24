@@ -8,9 +8,6 @@ import com.tanmay.therona.entities.Board
 class BoardRepository(private val dao: BoardDao) {
 
     fun getAllBoards(): LiveData<List<Board>> {
-//        return LiveData<List<Board>>().apply {
-//            value = dao.getAllBoards()
-//        }
         return dao.getAllBoards()
     }
 

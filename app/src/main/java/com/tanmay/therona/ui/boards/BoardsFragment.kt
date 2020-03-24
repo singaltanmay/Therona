@@ -30,7 +30,7 @@ class BoardsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel =
             ViewModelProvider(this).get(BoardsViewModel(context as BoardsViewModel.DataAccessInterface)::class.java)
-//        addEmptyBoard()
+        addEmptyBoard()
         setViewModelObservers()
     }
 
@@ -45,17 +45,12 @@ class BoardsFragment : Fragment() {
     }
 
     fun setViewModelObservers() {
-//        viewModel.refreshAllBoards()
-        Thread {
-            while (viewModel.allBoards == null){
-                Log.v("sknl", "Null boards")
+        viewModel.allBoards.observe(viewLifecycleOwner, Observer {
+            it.let {
+                refreshAdapterData(it)
+                Log.v("epmn", it.size.toString())
             }
-            viewModel.allBoards?.observe(viewLifecycleOwner, Observer {
-                if (it != null) {
-                    refreshAdapterData(it)
-                }
-            })
-        }.start()
+        })
     }
 
 

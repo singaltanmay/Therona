@@ -1,10 +1,13 @@
 package com.tanmay.therona.ui.boards
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tanmay.therona.entities.Board
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BoardsViewModel() : ViewModel() {
@@ -14,13 +17,7 @@ class BoardsViewModel() : ViewModel() {
     constructor(dbServe: DataAccessInterface) : this() {
         this.dbServe = dbServe
         init()
-        initialized = true
     }
-
-    var initialized: Boolean = false
-        get() {
-            return !(this.dbServe == null || this.allBoards == null)
-        }
 
 //    fun getBoardCount() = dbServe?.getAllBoards()?.size
 //
@@ -35,15 +32,37 @@ class BoardsViewModel() : ViewModel() {
 //        _allBoards.value = x
 //    }
 
-    private var _allBoards: LiveData<List<Board>>? = null
+    private var _allBoards: LiveData<List<Board>> = MutableLiveData()
 
-    var allBoards: LiveData<List<Board>>? = null
+    val allBoards: LiveData<List<Board>> = _allBoards
 
     private fun init() {
-        _allBoards = dbServe?.getAllBoards()
-        allBoards = _allBoards
+
+        CoroutineScope(Dispatchers.IO).launch {
+            Log.v("egmkp", "Launching coroutine")
+
+            dbServe?.saveNewBoard(Board())
+            dbServe?.saveNewBoard(Board())
+            dbServe?.saveNewBoard(Board())
+            dbServe?.saveNewBoard(Board())
+            dbServe?.saveNewBoard(Board())
+            dbServe?.saveNewBoard(Board())
+            dbServe?.saveNewBoard(Board())
+            dbServe?.saveNewBoard(Board())
+            dbServe?.saveNewBoard(Board())
+
+            val allBoards1 = dbServe?.getAllBoards()
+            val value = allBoards1?.value
+            Log.v("egmkp", value.toString())
+            value?.forEach {
+                Log.v("egmkp", it.boardId.toString())
+            }
+            _allBoards = allBoards1!!
+
+        }.start()
+
 //        Thread {
-//            _allBoards.postValue(dbServe.getAllBoards().value)
+//
 //        }.start()
     }
 
