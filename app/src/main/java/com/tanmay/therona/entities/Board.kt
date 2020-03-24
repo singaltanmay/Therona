@@ -10,5 +10,5 @@ data class Board(
     @PrimaryKey(autoGenerate = true) @NotNull val boardId: Long,
     val name: String,
     @Ignore
-    val tasklists: MutableList<TaskList>
+    val tasklists: MutableList<Tasklist>
 )

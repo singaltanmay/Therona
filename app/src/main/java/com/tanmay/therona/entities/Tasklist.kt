@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
 
 @Entity
-data class TaskList(
+data class Tasklist(
     @PrimaryKey(autoGenerate = true) @NotNull val taskListId: Long,
     val name: String,
     @Ignore
