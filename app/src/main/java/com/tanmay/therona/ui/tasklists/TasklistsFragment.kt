@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.tanmay.therona.R
 
-class TasklistsFragment : Fragment() {
+class TasklistsFragment(id: Long) : Fragment() {
 
     private lateinit var viewModel: TasklistsViewModel
 

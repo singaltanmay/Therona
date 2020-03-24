@@ -3,6 +3,9 @@ package com.tanmay.therona
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.android.material.snackbar.Snackbar
 import com.tanmay.therona.db.AppDb
 import com.tanmay.therona.db.repository.BoardRepository
@@ -22,9 +25,7 @@ class MainActivity : AppCompatActivity(), BoardsViewModel.DataAccessInterface {
         setContentView(R.layout.main_activity)
         getPersistence()
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, BoardsFragment())
-                .commitNow()
+            navigateTo(BoardsFragment())
         }
         if (!(application as TheronaApplication).userLoggedIn) showUserNotLoggedInSnackbar()
     }
@@ -47,15 +48,21 @@ class MainActivity : AppCompatActivity(), BoardsViewModel.DataAccessInterface {
             .show()
     }
 
-    override fun getAllBoards(): List<Board> {
+    override fun getAllBoards(): LiveData<List<Board>> {
         return boardRepository.getAllBoards()
     }
 
-    override fun getBoardById(id: Long): Board {
+    override fun getBoardById(id: Long): MutableLiveData<Board> {
         return boardRepository.getBoardById(id)
     }
 
     override suspend fun saveNewBoard(b: Board) {
         return boardRepository.insertBoard(b)
+    }
+
+    fun navigateTo(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .commitNow()
     }
 }
