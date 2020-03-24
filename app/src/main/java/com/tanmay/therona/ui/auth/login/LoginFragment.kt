@@ -9,7 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.tanmay.therona.R
 import com.tanmay.therona.TheronaApplication
+import com.tanmay.therona.ui.auth.AuthActivity
 import com.tanmay.workboards.ui.user.login.LoginViewModel
+import com.tanmay.workboards.ui.user.signup.SignUpFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -32,10 +34,10 @@ class LoginFragment : Fragment() {
 
     private fun setupNavigationListeners() {
         frag_user_login_cancel_button.setOnClickListener {
-//            findNavController().popBackStack()
+            activity?.finish()
         }
         frag_user_login_sing_up_button.setOnClickListener {
-//            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+            (activity as AuthActivity).navigateTo(SignUpFragment())
         }
     }
 
@@ -67,7 +69,7 @@ class LoginFragment : Fragment() {
             application.userLoggedIn = true
             Toast.makeText(context, "Welcome ${user.firstName != null ?: ""}!", Toast.LENGTH_SHORT)
                 .show()
-//            findNavController().popBackStack()
+            activity?.finish()
         } else Toast.makeText(context, "Invalid credentials", Toast.LENGTH_SHORT).show()
     }
 

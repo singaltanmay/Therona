@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), BoardsViewModel.DataAccessInterface {
                 .replace(R.id.container, BoardsFragment())
                 .commitNow()
         }
-        showUserNotLoggedInSnackbar()
+        if (!(application as TheronaApplication).userLoggedIn) showUserNotLoggedInSnackbar()
     }
 
     fun getPersistence() {
