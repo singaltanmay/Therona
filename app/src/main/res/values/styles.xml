@@ -1,11 +1,91 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Therona" parent="Theme.MaterialComponents.DayNight">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Theme.Therona.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+    <style name="Widget.Therona.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/TextAppearance.Therona.TextInput.HintText</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="Widget.Therona.TextInputLayout.FilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="hintTextAppearance">@style/TextAppearance.Therona.TextInput.HintText</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="TextAppearance.Therona.TextInput.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Widget.Therona.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="Widget.Therona.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+
+    <!-- &lt;!&ndash; Base application theme. &ndash;&gt;
+     <style name="Theme.Therona" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+         &lt;!&ndash; Customize your theme here. &ndash;&gt;
+         <item name="colorPrimary">@color/colorPrimary</item>
+         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+         <item name="colorSecondary">@color/colorSecondary</item>
+         <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+         <item name="colorError">@color/colorError</item>
+         <item name="colorPrimaryDark">@color/colorSecondaryDark</item>
+         <item name="colorAccent">@color/colorSecondary</item>
+     </style>
+    -->
+
+    <!--    <style name="Widget.Therona.Toolbar" parent="Widget.AppCompat.Toolbar">
+            <item name="android:background">?attr/colorAccent</item>
+            <item name="android:theme">@style/Theme.Therona</item>
+            <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+            <item name="titleTextAppearance">@style/TextAppearance.Therona.Toolbar</item>
+        </style>
+
+        <style name="TextAppearance.Therona.Toolbar" parent="TextAppearance.MaterialComponents.Button">
+            <item name="android:textSize">16sp</item>
+        </style>
+
+        <style name="Widget.Therona.Backdrop" parent="">
+            <item name="android:background">?attr/colorAccent</item>
+        </style>
+
+        -->
+
+    <style name="TextAppearance.Therona.Title" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Widget.Therona.Chip" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:padding">2dp</item>
+        <item name="rippleColor">@color/design_default_color_primary_variant</item>
+        <item name="closeIconVisible">false</item>em>
+
+    </style>
+
 </resources>
+

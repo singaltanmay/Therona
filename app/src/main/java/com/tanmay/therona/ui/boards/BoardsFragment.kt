@@ -1,4 +1,4 @@
-package com.tanmay.therona.ui.main
+package com.tanmay.therona.ui.boards
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,17 +8,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.tanmay.therona.R
 
-class MainFragment : Fragment() {
+class BoardsFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = BoardsFragment()
     }
 
     private lateinit var viewModel: MainViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return inflater.inflate(R.layout.boards_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull
 
 @Entity
 data class Task(
-    @PrimaryKey(autoGenerate = true) @NotNull val taskId: Long,
-    val body: String,
-    val taskListEntityId: Long
+    @PrimaryKey(autoGenerate = true) @NotNull var taskId: Long? = null,
+    var body: String? = null,
+    var taskListEntityId: Long? = null
 )

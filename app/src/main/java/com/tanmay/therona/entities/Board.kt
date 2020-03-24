@@ -7,8 +7,8 @@ import org.jetbrains.annotations.NotNull
 
 @Entity
 data class Board(
-    @PrimaryKey(autoGenerate = true) @NotNull val boardId: Long,
-    val name: String,
+    @PrimaryKey(autoGenerate = true) @NotNull var boardId: Long? = null,
+    var name: String? = null,
     @Ignore
-    val tasklists: MutableList<Tasklist>
+    var tasklists: MutableList<Tasklist>? = mutableListOf()
 )

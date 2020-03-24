@@ -1,4 +1,4 @@
-package com.tanmay.therona.ui.main
+package com.tanmay.therona.ui.boards
 
 import androidx.lifecycle.ViewModel
 
