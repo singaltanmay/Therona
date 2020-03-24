@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Therona</string>
+
+    <string name="item_tasklist_button_title_add_task">Add Task</string>
+    <string name="login_hint_email_id">Email Address</string>
+    <string name="login_hint_password">Password</string>
+    <string name="login_button_login">Login</string>
+    <string name="login_button_sign_up">Sign Up</string>
+    <string name="login_hint_confirm_password">Confirm Password</string>
+    <string name="sign_up_button_done">Done</string>
+    <string name="sign_up_button_cancel">Cancel</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="home_second">Home Second</string>
+    <string name="title_fab_board_creation">Create new board</string>
+    <string name="board_collection_title_personal_boards">Personal Boards</string>
+    <string name="sign_up_hint_first_name">First Name</string>
+    <string name="sign_up_hint_last_name">Last Name</string>
+
 </resources>

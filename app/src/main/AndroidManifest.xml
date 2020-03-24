@@ -3,12 +3,14 @@
     package="com.tanmay.therona">
 
     <application
+        android:name=".TheronaApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Therona">
+        <activity android:name=".ui.auth.AuthActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

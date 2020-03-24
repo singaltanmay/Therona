@@ -8,8 +8,9 @@
         android:id="@+id/fragment_board_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:spanCount="2" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/navigate_task_list_creation_fab"
@@ -17,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_margin="16dp"
-        android:text="Create Task List"
+        android:text="Create New Board"
         app:icon="@drawable/ic_add_black_24dp" />
 
 </FrameLayout>

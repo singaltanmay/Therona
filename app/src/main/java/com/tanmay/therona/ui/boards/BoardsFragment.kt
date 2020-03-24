@@ -30,7 +30,7 @@ class BoardsFragment : Fragment() {
             throw RuntimeException("$context must implement DataAccessInterface")
         }
 
-        debug()
+//        debug()
     }
 
     fun debug() {
