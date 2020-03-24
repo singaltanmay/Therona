@@ -1,7 +1,15 @@
 package com.tanmay.therona.entities
 
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
+import org.jetbrains.annotations.NotNull
+
+@Entity
 data class TaskList(
-    val taskListId : Long,
+    @PrimaryKey(autoGenerate = true) @NotNull val taskListId: Long,
     val name: String,
-    val tasks : List<Task>
+    @Ignore
+    val tasks: List<Task>,
+    val boardEntityId: Long
 )
