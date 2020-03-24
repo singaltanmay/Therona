@@ -30,17 +30,17 @@ class BoardsFragment : Fragment() {
             throw RuntimeException("$context must implement DataAccessInterface")
         }
 
-//        debug()
+        addEmptyBoard()
     }
 
-    fun debug() {
-
-        viewModel.saveNewBoard(Board())
-        Log.v(
-            BoardsFragment::class.java.simpleName,
-            "There are ${viewModel.getBoardCount()} boards."
-        )
-
+    fun addEmptyBoard() {
+        Thread {
+            viewModel.saveNewBoard(Board())
+            Log.v(
+                BoardsFragment::class.java.simpleName,
+                "There are ${viewModel.getBoardCount()} boards."
+            )
+        }.start()
     }
 
 }

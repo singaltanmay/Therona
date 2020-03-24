@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), BoardsViewModel.DataAccessInterface {
         return boardRepository.getBoardById(id)
     }
 
-    override fun saveNewBoard(b: Board) {
+    override suspend fun saveNewBoard(b: Board) {
         return boardRepository.insertBoard(b)
     }
 }

@@ -15,6 +15,6 @@ interface BoardDao {
     fun getBoard(boardId: Long): Board
 
     @Insert
-    fun insertBoard(board: Board)
+    suspend fun insertBoard(board: Board)
 
 }

@@ -9,6 +9,6 @@ class BoardRepository(private val dao: BoardDao) {
 
     fun getBoardById(boardId: Long) = dao.getBoard(boardId)
 
-    fun insertBoard(board: Board) = dao.insertBoard(board)
+    suspend fun insertBoard(board: Board) = dao.insertBoard(board)
 
 }
