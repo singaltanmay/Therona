@@ -45,7 +45,9 @@ class BoardsFragment : Fragment() {
     }
 
     fun setViewModelObservers() {
+        Log.v("epmn", "New VMO set")
         viewModel.allBoards.observe(viewLifecycleOwner, Observer {
+            Log.v("epmn", "New dataset!")
             it.let {
                 refreshAdapterData(it)
                 Log.v("epmn", it.size.toString())

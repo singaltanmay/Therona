@@ -40,7 +40,7 @@ abstract class AppDb : RoomDatabase() {
                     context.applicationContext,
                     AppDb::class.java,
                     "app_database"
-                ).build()
+                ).allowMainThreadQueries().build()
                 INSTANCE = instance
                 return instance
             }

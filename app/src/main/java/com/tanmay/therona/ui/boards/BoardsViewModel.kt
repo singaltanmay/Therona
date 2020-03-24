@@ -32,9 +32,9 @@ class BoardsViewModel() : ViewModel() {
 //        _allBoards.value = x
 //    }
 
-    private var _allBoards: LiveData<List<Board>> = MutableLiveData()
+//    private var _allBoards: MutableLiveData<List<Board>> = MutableLiveData()
 
-    val allBoards: LiveData<List<Board>> = _allBoards
+    val allBoards: MutableLiveData<List<Board>> = MutableLiveData()
 
     private fun init() {
 
@@ -51,15 +51,18 @@ class BoardsViewModel() : ViewModel() {
             dbServe?.saveNewBoard(Board())
             dbServe?.saveNewBoard(Board())
 
-            val allBoards1 = dbServe?.getAllBoards()
-            val value = allBoards1?.value
-            Log.v("egmkp", value.toString())
-            value?.forEach {
-                Log.v("egmkp", it.boardId.toString())
-            }
-            _allBoards = allBoards1!!
+//            val allBoards1 = dbServe?.getAllBoards()
+//            val value = allBoards1?.value
+//            Log.v("egmkp", value.toString())
+//            value?.forEach {
+//                Log.v("egmkp", it.boardId.toString())
+//            }
+//            _allBoards = allBoards1!!
 
-        }.start()
+            val allBoards1 = dbServe?.getAllBoards()
+            allBoards.postValue(allBoards1)
+
+        }
 
 //        Thread {
 //
@@ -73,7 +76,7 @@ class BoardsViewModel() : ViewModel() {
     }
 
     interface DataAccessInterface {
-        fun getAllBoards(): LiveData<List<Board>>
+        fun getAllBoards(): List<Board>
         fun getBoardById(id: Long): MutableLiveData<Board>
         suspend fun saveNewBoard(b: Board)
 

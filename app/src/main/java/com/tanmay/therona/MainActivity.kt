@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), BoardsViewModel.DataAccessInterface {
             .show()
     }
 
-    override fun getAllBoards(): LiveData<List<Board>> {
+    override fun getAllBoards(): List<Board> {
         return boardRepository.getAllBoards()
     }
 
